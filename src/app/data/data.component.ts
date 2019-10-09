@@ -10,7 +10,7 @@ export class DataComponent implements OnInit {
   id: number;
   FName: string;
   LName: string;
-  phone: number;
+  phone: any;
 
   constructor() {
     this.persons = [
@@ -49,7 +49,9 @@ export class DataComponent implements OnInit {
     newPerson.id = this.persons.slice(-1)[0].id + 1;
     this.persons.push(newPerson)
     console.log(this.persons);
-    
+    this.FName = '';
+    this.LName = '';
+    this.phone = '';
   }
 
 }
