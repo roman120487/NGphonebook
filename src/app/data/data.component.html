@@ -1,67 +1,69 @@
 <main class="containerPhone">
-    <header>
-        <p> My phone book</p>
-    </header>
-    <main>
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Search text goes phone..."
-                aria-label="Recipient's username" aria-describedby="button-addon2">
-            <div class="input-group-append">
-                <button class="btn btn-success" type="button" data-toggle="modal" data-target="#addPhone">Add phone</button>
-            </div>
-        </div>
-    </main>
+  <header>
+    <p> My phone book</p>
+  </header>
+  <main>
+    <div class="input-group mb-3">
+      <input type="text" [(ngModel)]="search" name="search" class="form-control" placeholder="Search text goes phone..."
+        aria-label="Recipient's username" aria-describedby="button-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-success" type="button" data-toggle="modal" data-target="#addPhone">Add phone</button>
+      </div>
+    </div>
+  </main>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First Name</th>
-                <th scope="col">Last Name</th>
-                <th scope="col">Phone number</th>
-                <th scope="col">Edite</th>
-                <th scope="col">Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let person of persons; let i = index">
-                <th scope="row">{{i+1}}</th>
-                <td>{{person.FName}}</td>
-                <td>{{person.LName}}</td>
-                <td>{{person.phone}}</td>
-                <td><button type="button" class="btn btn-warning">Edite</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
-            </tr>
-        </tbody>
-    </table>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Phone number</th>
+        <th scope="col">Edite</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of persons | name:search; let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{person.FName}}</td>
+        <td>{{person.LName}}</td>
+        <td>{{person.phone}}</td>
+        <td><button type="button" class="btn btn-warning">Edite</button></td>
+        <td><button type="button" class="btn btn-danger">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
 </main>
 
 
-<!-- Modal Add phone -->
+<!------------------------- Modal Add phone ------------------->
 
-<!-- Button trigger modal -->
-
-  <div class="modal fade" id="addPhone" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add phone</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <input type="text" [(ngModel)]="FName" name="FName" class="inputAddPerson form-control" placeholder="First name goes here" aria-label="Username" aria-describedby="basic-addon1">
-            <input type="text" [(ngModel)]="LName" name="LName" class="inputAddPerson form-control" placeholder="Last name goes here" aria-label="Username" aria-describedby="basic-addon1">
-            <input type="text" [(ngModel)]="phone" name="phone" class="inputAddPerson form-control" placeholder="Number phone goes here" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addPhone()">Add phone</button>
-        </div>
+<div class="modal fade" id="addPhone" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add phone</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="text" [(ngModel)]="FName" name="FName" class="inputAddPerson form-control"
+          placeholder="First name goes here" aria-label="Username" aria-describedby="basic-addon1">
+        <input type="text" [(ngModel)]="LName" name="LName" class="inputAddPerson form-control"
+          placeholder="Last name goes here" aria-label="Username" aria-describedby="basic-addon1">
+        <input type="text" [(ngModel)]="phone" name="phone" class="inputAddPerson form-control"
+          placeholder="Number phone goes here" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addPhone()">Add phone</button>
       </div>
     </div>
   </div>
+</div>
 
 
 <!--  -->

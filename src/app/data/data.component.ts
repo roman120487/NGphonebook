@@ -11,6 +11,7 @@ export class DataComponent implements OnInit {
   FName: string;
   LName: string;
   phone: any;
+  search: string;
 
   constructor() {
     this.persons = [
