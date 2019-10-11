@@ -13,3 +13,7 @@ header{
 .inputAddPerson{
     margin-top: 15px;
 }
+.arrow{
+    width: 10px;
+    height: 10px;
+}

@@ -9,12 +9,6 @@ export class NamePipe implements PipeTransform {
     if (!value) { return []; }
     if (!search) { return value; }
     return value.filter(val => val.FName.indexOf(search) != -1);
-
-
-    // return value.filter(function (val) {
-    //   return val.FName.indexOf(search) != -1
-    // });
-
   }
 
 }

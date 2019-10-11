@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DataComponent } from './data/data.component';
 import { NamePipe } from './shared/pipes/name.pipe';
+import { SortFNamePipe } from './shared/pipes/sort-fname.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     DataComponent,
-    NamePipe
+    NamePipe,
+    SortFNamePipe
   ],
   imports: [
     BrowserModule,
