@@ -15,6 +15,8 @@ export class DataComponent implements OnInit {
   index: number;
   // arrow: boolean;
   sortFNameValue: boolean = true;
+  sortLNameValue: boolean = true;
+  sortPhoneValue: boolean = true;
 
   constructor() {
     this.persons = [
@@ -74,13 +76,25 @@ export class DataComponent implements OnInit {
     this.persons.splice(i, 1);
   }
   sortFName(): void {
-    this.persons.sort();
-    console.log('work');
-    // tslint:disable-next-line: no-conditional-assignment
+    // this.persons.sort();
     if (this.sortFNameValue == true) {
       this.sortFNameValue = false;
     } else { this.sortFNameValue = true; }
 
+  }
+
+  sortLName(): void {
+    // this.persons.sort();
+    if (this.sortLNameValue == true) {
+      this.sortLNameValue = false;
+    } else { this.sortLNameValue = true; }
+  }
+
+  sortPhone(): void {
+    // this.persons.sort();
+    if (this.sortPhoneValue == true) {
+      this.sortPhoneValue = false;
+    } else { this.sortPhoneValue = true; }
   }
 
 }

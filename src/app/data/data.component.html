@@ -17,22 +17,29 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col" (click)="sortFName()">First name
-           <img class="arrow" *ngIf="sortFNameValue" src="assets/arrow_down.png" alt="">
-           <img class="arrow" *ngIf="!sortFNameValue" src="assets/arrow_up.png" alt="">
-          </th>
-        <th scope="col">Last Name</th>
-        <th scope="col">Phone number</th>
-        <th scope="col">Edite</th>
+          <img class="arrow" *ngIf="sortFNameValue" src="assets/arrow_down.png" alt="">
+          <img class="arrow" *ngIf="!sortFNameValue" src="assets/arrow_up.png" alt="">
+        </th>
+        <th scope="col" (click)="sortLName()">Last Name
+          <img class="arrow" *ngIf="sortLNameValue" src="assets/arrow_down.png" alt="">
+          <img class="arrow" *ngIf="!sortLNameValue" src="assets/arrow_up.png" alt=""></th>
+        <th scope="col" (click)="sortPhone()">Phone number
+          <img class="arrow" *ngIf="sortPhoneValue" src="assets/arrow_down.png" alt="">
+          <img class="arrow" *ngIf="!sortPhoneValue" src="assets/arrow_up.png" alt="">
+          </th> <th scope="col">Edite
+        </th>
         <th scope="col">Delete</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let person of persons | name:search | sortFName:sortFNameValue; let i = index">
+      <tr
+        *ngFor="let person of persons | name:search | sortFName:sortFNameValue | sortLName: sortLNameValue| sortPhone:sortPhoneValue ; let i = index">
         <th scope="row">{{i+1}}</th>
         <td>{{person.FName}}</td>
         <td>{{person.LName}}</td>
         <td>{{person.phone}}</td>
-        <td><button type="button" class="btn btn-warning" (click)="editePhone(person,i)" data-toggle="modal" data-target="#editePhone">Edite</button></td>
+        <td><button type="button" class="btn btn-warning" (click)="editePhone(person,i)" data-toggle="modal"
+            data-target="#editePhone">Edite</button></td>
         <td><button type="button" class="btn btn-danger" (click)="deletePhone(i)">Delete</button></td>
       </tr>
     </tbody>
